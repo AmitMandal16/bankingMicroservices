@@ -84,7 +84,10 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
+				<configuration>	
+				<image>
+				  <name>amitmandal22/${project.artifactId}:v1</name>
+				</image>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
