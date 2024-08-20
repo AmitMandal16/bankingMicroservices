@@ -1,0 +1,79 @@
+Ways to genrate the docker image.. 
+========================================================================================================
+1. Build image via using dockerfile 
+========================================================================================================
+
+1. mvn clean install
+2. mvn spring-boot:run
+3. create a docker file where pom.xml resides with the name of [Dockerfile]
+4. commands to be given inside the file.
+
+#Start with a base image conatining Java Runtime
+FROM openjdk:17-jdk-slim
+
+#MAINTAINER amit.mandal
+
+#Application jar copy to the image
+COPY target/accounts-0.0.1-SNAPSHOT.jar accounts-0.0.1-SNAPSHOT.jar
+
+ENTRYPOINT ["java","-jar","accounts-0.0.1-SNAPSHOT.jar"]
+
+
+5. run the command to genrate the docker image -> docker build . -t amitmandal22/accounts:v1
+
+6. docker run -p 8081:8081 amitmandal22/accounts:v1
+
+7. to run image in a detached mode -> docker run -p 8081:8081 amitmandal22/accounts:v1
+
+After running the above steps docker image will be generated
+--------------------------------------------------------------------------------------------------------------------
+
+Common commands of docker
+1. docker images -> to check the list of images in system.
+2. docker inspect f671 -> To check about the image information.
+3. docker ps -> to check the conatiner which are in stopped state.
+4. docker stop <container Id>
+5. docker push docker.io/amitmandal22/loans:v1  -> to push docker image to remote repository
+6. docker pull amitmandal22/cards:v1  --> to pull from remote repository
+
+
+=============================================================================================
+By using buildPacks to generate docker image.
+=============================================================================================
+
+1. first add the image tag under the config tag inside pom.xml
+
+<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>	
+				<image>
+				  <name>amitmandal22/${project.artifactId}:v1</name>
+				</image>
+
+2. Run this command ---> mvn spring-boot:build-image
+
+3. to run image in a detached mode -> docker run -p 8090:8090 amitmandal22/loans:v1
+
+=================================================================================================
+By using Google Jib
+=================================================================================================
+
+1. Paste the plugin details inside pom.xml under the plugins tag.
+
+<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.4.3</version>
+				<configuration>
+					<to>
+						<image>amitmandal22/${project.artifactId}:v1</image>
+					</to>
+				</configuration>
+			</plugin>
+
+2. Run this command -->  mvn compile jib:dockerBuild
+
+
+
+
+
