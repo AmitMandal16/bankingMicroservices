@@ -1,0 +1,11 @@
+build:
+ version: "1.0"
+
+accounts:
+ message: "Welcome to AmitBank accounts related Prod APIs "
+ contactDetails:
+  name: "Amit Mandal - Product Owner"
+  email: "amit.mandal.2209@gmail.com"
+ onCallSupport:
+  - (91) 9315774030
+  - (91) 0000000000
