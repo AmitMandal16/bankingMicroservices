@@ -60,6 +60,8 @@ By using Google Jib
 
 1. Paste the plugin details inside pom.xml under the plugins tag.
 
+Delete the maven plugin and replace the below plugin
+
 <plugin>
 				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>jib-maven-plugin</artifactId>
@@ -75,5 +77,22 @@ By using Google Jib
 
 
 
+docker run -p 3306:3306 --name accountsdb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=accountsdb -d mysql
 
 
+******************MySQL docker container*******************************************************************************************
+
+C:\Users\Novelvox>docker run -p 3306:3306 --name accountsdb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=accountsdb -d mysql
+cb4d34fcac2e544d9234e69286d39177e368bbe730c6ca4f1fc6c947ac2ba078
+
+C:\Users\Novelvox>
+
+C:\Users\Novelvox>docker run -p 3306:3306 --name accountsdb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=accountsdb -d mysql
+docker: Error response from daemon: Conflict. The container name "/accountsdb" is already in use by container "cb4d34fcac2e544d9234e69286d39177e368bbe730c6ca4f1fc6c947ac2ba078". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+
+C:\Users\Novelvox>docker run -p 3307:3306 --name loansdb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=loansdb -d mysql
+9c47d65076ba64ba172b2cdf25094fad5e92801ac2931a1964619602eccb0815
+
+C:\Users\Novelvox>docker run -p 3308:3306 --name cardsdb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=cardsdb -d mysql
+1686e46da3e1f6a5a39a653579aee5288d46917159eb976a7df5ef50f226a7e2
