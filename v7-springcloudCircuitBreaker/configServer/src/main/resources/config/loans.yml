@@ -1,0 +1,11 @@
+build:
+  version: "3.0"
+
+loans:
+ message: "Welcome to AmitBank loans related local APIs "
+ contactDetails:
+  name: "Amit Mandal - Developer"
+  email: "amit.mandal.2209@gmail.com"
+ onCallSupport:
+  - (91) 9315774030
+  - (91) 0000000000
